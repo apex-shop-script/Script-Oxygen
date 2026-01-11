@@ -338,3 +338,41 @@ body::after {
     radial-gradient(circle at 80% 80%, rgba(255,100,0,0.06), transparent 60%);
   z-index: -1;
 }
+.section {
+    position: relative;
+    padding: 80px 10%;
+    background:
+        radial-gradient(circle at top, rgba(0,255,255,0.15), transparent 40%),
+        radial-gradient(circle at bottom, rgba(0,100,255,0.2), transparent 50%),
+        linear-gradient(180deg, #020b18, #02040f);
+    overflow: hidden;
+}
+
+/* animirane munje */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://i.imgur.com/9Q6Rz3g.png"); /* lightning particles */
+    opacity: 0.35;
+    animation: stormMove 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes stormMove {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 500px; }
+}
+.card {
+    background: rgba(20,30,50,0.85);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0,150,255,0.15);
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 60px rgba(0,200,255,0.6);
+}
