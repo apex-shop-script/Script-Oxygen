@@ -147,3 +147,147 @@ footer {
   50% { background-position: center center; }
   100% { background-position: center top; }
 }
+/* =========================
+   PRO GAMING SHOP UPGRADE
+   ========================= */
+
+/* 1) Smooth sve */
+* { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+/* 2) Sekcije neka ulaze (fade + slide) */
+.section {
+  animation: sectionIn 900ms ease both;
+}
+@keyframes sectionIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 3) 3D tilt feeling + mega glow na karticama */
+.grid { perspective: 900px; }
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,200,255,0.18);
+  box-shadow: 0 0 25px rgba(0,200,255,0.10);
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+
+/* Neon “rim” */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.22), transparent 45%),
+              radial-gradient(circle at 80% 40%, rgba(0,200,255,0.18), transparent 55%),
+              radial-gradient(circle at 50% 100%, rgba(255,120,0,0.12), transparent 55%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Shine sweep */
+.card::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.14) 45%, transparent 55%);
+  transform: rotate(8deg);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-14px) rotateX(3deg) rotateY(-3deg) scale(1.02);
+  box-shadow: 0 0 70px rgba(0,200,255,0.25);
+  border-color: rgba(0,255,255,0.35);
+}
+.card:hover::after {
+  opacity: 1;
+  animation: shine 900ms ease forwards;
+}
+@keyframes shine {
+  from { transform: translateX(-15%) rotate(8deg); }
+  to   { transform: translateX(15%) rotate(8deg); }
+}
+
+/* 4) PRO button (shine + “press”) */
+.btn {
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.4px;
+  transition: transform 140ms ease, filter 140ms ease;
+  filter: saturate(1.15);
+}
+
+.btn::after{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: rotate(16deg);
+  opacity: 0.0;
+  pointer-events:none;
+}
+
+.btn:hover{
+  transform: translateY(-2px);
+  filter: saturate(1.35) brightness(1.05);
+}
+.btn:hover::after{
+  opacity: 1;
+  animation: btnShine 900ms ease forwards;
+}
+@keyframes btnShine{
+  from { left: -60%; }
+  to   { left: 140%; }
+}
+.btn:active{
+  transform: translateY(1px) scale(0.99);
+}
+
+/* 5) Hero overlay – jači “glass” i neon */
+.hero-overlay{
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,255,255,0.18);
+  box-shadow: 0 0 80px rgba(0,200,255,0.18);
+}
+
+/* 6) Cool scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #050b12; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00c8ff, #7a00ff);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#00ffff, #ff5a00);
+}
+
+/* 7) Mikro “sparkle” overlay (lagano) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.06), transparent 35%),
+    radial-gradient(circle at 70% 10%, rgba(0,255,255,0.05), transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(255,120,0,0.05), transparent 45%);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  animation: sparkMove 14s ease-in-out infinite;
+}
+@keyframes sparkMove{
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
