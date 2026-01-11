@@ -291,3 +291,50 @@ body::before{
   50% { transform: translateY(-14px); }
   100% { transform: translateY(0px); }
 }
+/* =========================
+   ENERGY BACKGROUND BELOW HERO
+   ========================= */
+
+body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.06), transparent 40%),
+    radial-gradient(circle at 80% 40%, rgba(0,140,255,0.06), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(255,80,0,0.05), transparent 40%),
+    #050b12;
+}
+
+/* Lightning layer */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(0,255,255,0.08), transparent 60%),
+    linear-gradient(-120deg, transparent 45%, rgba(0,120,255,0.08), transparent 60%),
+    linear-gradient(60deg, transparent 50%, rgba(255,80,0,0.06), transparent 70%);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  animation: lightningMove 8s ease-in-out infinite;
+}
+
+/* Slow animated energy */
+@keyframes lightningMove {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-25px) translateX(15px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* Glow behind cards */
+.section {
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -150px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,255,255,0.08), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255,100,0,0.06), transparent 60%);
+  z-index: -1;
+}
