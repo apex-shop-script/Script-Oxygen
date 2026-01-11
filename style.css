@@ -224,3 +224,60 @@ footer{
   .section{ padding: 60px 6%; }
   .hero-overlay{ padding: 34px 22px; }
 }
+/* ===== VIDLJIVE MUNJE (ispod hero) ===== */
+.section{
+  position: relative;
+  isolation: isolate;
+}
+
+/* munje layer */
+.section::after{
+  content:"";
+  position:absolute;
+  inset:-120px;
+  z-index:-1;
+  opacity:.65;
+  pointer-events:none;
+
+  /* dvije munje + malo svjetla */
+  background:
+    linear-gradient(115deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(0,255,255,.00) 47%,
+      rgba(0,255,255,.85) 49%,
+      rgba(255,255,255,.75) 50%,
+      rgba(0,140,255,.85) 51%,
+      rgba(0,255,255,.00) 53%,
+      transparent 55%,
+      transparent 100%
+    ),
+    linear-gradient(245deg,
+      transparent 0%,
+      transparent 58%,
+      rgba(0,255,255,.00) 59%,
+      rgba(0,255,255,.70) 61%,
+      rgba(255,255,255,.60) 62%,
+      rgba(0,120,255,.70) 63%,
+      rgba(0,255,255,.00) 65%,
+      transparent 67%,
+      transparent 100%
+    ),
+    radial-gradient(circle at 50% 35%, rgba(0,255,255,.16), transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(0,120,255,.14), transparent 55%);
+
+  filter: blur(.2px);
+  mix-blend-mode: screen;
+  animation: lightningFlash 4.2s infinite;
+}
+
+/* malo “flash” treperenje da izgleda kao munja */
+@keyframes lightningFlash{
+  0%, 76%, 100% { opacity: .18; transform: translateY(0) scale(1); }
+  78% { opacity: .90; }
+  79% { opacity: .25; }
+  81% { opacity: .75; transform: translateY(-6px) scale(1.01); }
+  82% { opacity: .22; }
+  84% { opacity: .62; }
+  86% { opacity: .18; transform: translateY(0) scale(1); }
+}
