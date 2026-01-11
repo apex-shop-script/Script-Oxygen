@@ -101,3 +101,49 @@ footer {
   color: #aaa;
   background: #02050a;
 }
+/* FLOATING cards */
+.card {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* GLOW pulse on buttons */
+.btn {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #00c8ff; }
+  50% { box-shadow: 0 0 40px #00c8ff; }
+  100% { box-shadow: 0 0 15px #00c8ff; }
+}
+
+/* TITLE glow animation */
+.hero-overlay h1 {
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00c8ff, 0 0 20px #00c8ff;
+  }
+  to {
+    text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
+  }
+}
+
+/* soft moving background */
+.hero {
+  animation: bgmove 20s linear infinite;
+}
+
+@keyframes bgmove {
+  0% { background-position: center top; }
+  50% { background-position: center center; }
+  100% { background-position: center top; }
+}
