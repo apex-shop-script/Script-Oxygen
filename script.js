@@ -22,17 +22,21 @@ function openPacks(type){
   modal.style.display = "flex";
 }
 
-function pack(name, price, desc){
+function pack(name, price, desc) {
   return `
-  <div class="pack">
-    <h3>${name}</h3>
-    <p>${desc}</p>
-    <div class="price">${price}</div>
-    <a class="btn">Buy</a>
-  </div>
+    <div class="pack">
+      <h3>${name}</h3>
+      <p>${desc}</p>
+      <span>${price}</span>
+      <button onclick="buy()">Buy</button>
+    </div>
   `;
+}
 }
 
 function closePacks(){
   document.getElementById("modal").style.display = "none";
+}
+function buy() {
+  window.open("https://discord.gg/apex-shop-script", "_blank");
 }
