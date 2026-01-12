@@ -185,8 +185,17 @@ footer {
 
 /* 3) Modal: kad je zatvoren ne smije blokirati klikove */
 .modal {
-  display: none;          /* mora biti none dok nije otvoren */
-  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.card.category { cursor: pointer; }
 }
 .card.category { cursor: pointer; }
 .modal {
@@ -209,3 +218,4 @@ footer {
 .modal, .modal * {
   pointer-events: auto;
 }
+
