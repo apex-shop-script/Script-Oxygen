@@ -167,3 +167,25 @@ footer {
   cursor:pointer;
   font-size:20px;
 }
+/* 1) Osiguraj da shop bude iznad overlaya */
+#shop, #shop .grid, .card.category {
+  position: relative;
+  z-index: 10;
+}
+
+/* 2) Ako hero overlay prelazi preko shopa – neka ne hvata klikove */
+.hero, .hero-overlay {
+  pointer-events: none;
+}
+
+/* Ako imaš u hero overlayu gumb/link koji mora raditi, vrati klik samo njemu */
+.hero a, .hero .btn {
+  pointer-events: auto;
+}
+
+/* 3) Modal: kad je zatvoren ne smije blokirati klikove */
+.modal {
+  display: none;          /* mora biti none dok nije otvoren */
+  pointer-events: none;
+}
+.card.category { cursor: pointer; }
