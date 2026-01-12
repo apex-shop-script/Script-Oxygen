@@ -90,3 +90,80 @@ footer {
   padding: 40px;
   background: #02040f;
 }
+.category{
+  cursor:pointer;
+  text-align:center;
+  transition:0.3s;
+}
+
+.category:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px #00ffff66;
+}
+
+.view{
+  margin-top:15px;
+  padding:10px;
+  background:#00ffff;
+  color:black;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal-box{
+  background:#0b0f1a;
+  padding:30px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+  box-shadow:0 0 40px #00ffff55;
+}
+
+.modal-box h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.pack{
+  background:#111;
+  border:1px solid #00ffff55;
+  border-radius:10px;
+  padding:15px;
+  margin-bottom:15px;
+}
+
+.pack h3{
+  margin:0;
+}
+
+.pack .price{
+  color:#00ffff;
+  font-size:20px;
+  margin:10px 0;
+}
+
+.pack .btn{
+  display:block;
+  text-align:center;
+  background:#00ffff;
+  color:black;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:20px;
+}
