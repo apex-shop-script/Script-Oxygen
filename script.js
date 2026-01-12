@@ -28,10 +28,9 @@ function pack(name, price, desc) {
       <h3>${name}</h3>
       <p>${desc}</p>
       <span>${price}</span>
-      <button onclick="buy()">Buy</button>
+      <button type="button" onclick="buy()">Buy</button>
     </div>
   `;
-}
 }
 
 function closePacks(){
