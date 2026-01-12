@@ -189,3 +189,23 @@ footer {
   pointer-events: none;
 }
 .card.category { cursor: pointer; }
+.modal {
+  z-index: 9999;
+}
+
+.modal-box {
+  position: relative;
+  z-index: 10000;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  z-index: 10001;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.modal, .modal * {
+  pointer-events: auto;
+}
